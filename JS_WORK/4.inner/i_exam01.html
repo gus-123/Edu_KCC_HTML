@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <script type="text/javascript">
+    let timeId;  // setTimeout() 함수의 return value를 저장할 변수
+    let running = false;  // 이와 같이 상태 변경을 위해서 많이 사용한다.
+
+    function show() {
+      let now = new  Date();
+      let hour = now.getHours();
+      let minute = now.getMinutes();
+      let seconds = now.getSeconds();
+      let timeValue = hour +  '시' + minute + '분 ' + seconds + '초';
+
+      document.fmt.display.value = timeValue;
+      //timeId = setTimeout("show()", 1000);  // (출력하고 싶은 함수, 몇초 마다 나오게 할껀지) - 재귀함수<원래는 한번만 실행 됨>
+    }
+    function startClock() {
+      if (running) return;
+      show();
+      timeId = setInterval("show()", 1000);  // (주기적으로 함수를 호출 함)
+      running = true;
+    }
+
+    function stopClock() {
+      if (running) {
+        clearTimeout(timeId);
+        running = false;
+      }
+    }
+  </script>
+</head>
+<body>
+  <form name="fmt">
+    <input type="text" name="display"><br>
+    <input type="button" name="시작" value="start" onclick="startClock()">
+    <input type="button" name="종료" value="stop" onclick="stopClock()">
+  </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table width="450" border="1">
+		<caption>2024v프로야구 순위</caption>
+		<thead>
+			<tr height="50" align="center">  <!-- 행  -->
+				<th>순위</th>  <!-- 열 -->
+				<th>팀명</th>
+				<th>승</th>
+				<th>패</th>
+			</tr>
+			<tr height="50" align="center">
+				<th>1</th>
+				<th>KIA</th>
+				<th>90</th>
+				<th>10</th>
+			</tr>
+			<tr height="50" align="center">
+				<th>2</th>
+				<th>LG</th>
+				<th>80</th>
+				<th>20</th>
+			</tr>
+			<tr height="50" align="center">
+				<th>3</th>
+				<th>두신</th>
+				<th>70</th>
+				<th>30</th>
+			</tr>
+	</table>
+</body>
+</html>

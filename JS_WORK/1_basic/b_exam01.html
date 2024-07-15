@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부 선언 방식 -->
+  <script type="text/javascript" src="common.js"></script>
+
+  <!-- 자바스크립트 선언 -->
+  <script type="text/javascript">
+    function kosa() {
+      alert('kosa');
+    }
+  </script>
+</head>
+<body>
+  <!-- 인라인 형식으로 사용 -->
+  <input type="button" value="button" onclick="kosa()">
+
+  <!-- 블록 형식으로 사용 -->
+  <script type="text/javascript">
+    function kosa2() {
+      console.log('kosa2....');
+    }
+
+    kosa2();
+    kosa3();
+  </script>
+</body>
+</html>

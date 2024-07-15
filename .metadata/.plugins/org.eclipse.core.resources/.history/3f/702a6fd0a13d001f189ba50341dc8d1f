@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 인접 형제 선택자 */
+div div {
+	background: #fc6ad;
+	color: #0076ff;
+}
+
+div p {
+	background: #ffb100;
+	color: #0076ff;
+}
+
+div>div {
+	background: #fc6aad;
+	color: #0076ff;
+}
+
+div>p {
+	background: #ffb100;
+	color: #0076ff;
+}
+/* 마우스 요소 */
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: red;
+}
+
+a:hover {
+	color: purple;
+}
+
+a:active {
+	color: green;
+}
+/* 지정된 요소 부모의 n번째 자식들에 적용 */
+li:nth-child(2n+1) {
+	color: red;
+}
+/* 글자 폰트 적용 */
+#serif {
+	font-family: serif;
+	font-style: normal; /*보통*/
+	font-variant: small-caps;
+}
+
+#sans-serif {
+	font-family: sans-serif;
+	font-style: italic; /*이태릭*/
+	font-weight: bolder;
+}
+/*공백이 들어가 폰트명은 " "처리를 해주어야함*/
+#monospace {
+	font-family: monospace, " Times New Roman";
+	font-style: oblique; /*기울임*/
+	font-weight: lighter;
+}
+/* 폰트 크기 */
+h1 {
+	font-size: 150%;
+}
+
+h2 {
+	font-size: 100%;
+}
+
+h3 {
+	font-size: 75%
+}
+/* 한번에 지정 가능한 단축형 속성 */
+#tareget1 {
+	font: bold 12px/1.3em Verdana
+}
+/* display */
+#pre {
+	text-align: center;
+}
+
+span {
+	background-color: gold;
+}
+/* div {background-color: tomato;} */
+div.target4 {
+	display: inline;
+}
+
+div.target5 {
+	display: block;
+}
+
+duv.last {
+	display: none;
+}
+/* background-color */
+.transparent {
+	border: 2px solid black;
+	background-color: transparent; /* 배경이 투명 */
+	width: : 100px;
+	height: 100px;
+}
+.notTransparent {
+	border: 2px dotted black;
+	background-color: tomato; /* 배경이 불투명 */
+	width: : 100px;
+	height: 100px;
+}
+/* background-image */
+body {
+	background-image: url("./cat.jpg");
+}
+</style>
+</head>
+<body>
+	<div>
+		<p>Descendant Selector(하위선택자)</p>
+		<div>
+			<ul>
+				<li><p>Descendant Selector(하위선택자)</p></li>
+			</ul>
+		</div>
+	</div>
+	<div>
+		<a href="https://www.w3schools.com/">W3cshools</a>
+	</div>
+	<div>
+		<ul>
+			<li>첫 번째 자식 요소</li>
+			<li>두 번째 자식 요소</li>
+			<li>세 번째 자식 요소</li>
+			<li>네 번째 자식 요소</li>
+			<li>다섯 번째 자식 요소</li>
+		</ul>
+	</div>
+	<div>
+		<h1>font-family</h1>
+		<p id="serif">serif는 글자의 획 끝을 serif로 장식한 서체</p>
+		<p id="sans-serif">sans-serif는 serif가 없는 글자 끝이 곧은 서체</p>
+		<p id="monospace">monospace는 글자의 너비가 모두 동일한 서체</p>
+	</div>
+	<div>
+		<h1>This is h1 element</h1>
+		<h2>This is h2 element</h2>
+		<p>This is p element</p>
+	</div>
+	<div>
+		<p id="target1">This is target1</p>
+	</div>
+	<div id=pre>CSS Text-align은 text 정렬을 지정한다. 속성 값의 종류는
+		left,right,center, justify있다. 속성 값에 따라text를 왼쪽, 오른쪽, 중아 정렬을 할 수 있다.</div>
+	<div>
+		<div class="targer4">Block-Level</div>
+		<span>Inline-level</span> <span class="target5">Inline-level</span>
+		<div class="Last">Last Element</div>
+	</div>
+
+	<div class="transparent">배경이 투명</div>
+	<div class="notTransparent">배경이 불투명</div>
+
+
+</body>
+</html>

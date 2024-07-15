@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>홈페이지</h1>
+	<form action = "서버URL" method="get/post">
+		<fieldset>
+			<ol>
+				<li>
+					<label for="id">아이디</label>
+					<input type="text" name="userId" id="id" autofocus="autofocus" placeholder ="ex)dolsam77">  <!-- name은 데이터 전송을 위해 필요한 이름 -->
+				</li>
+			</ol>
+		</fieldset>
+	</form>
+</body>
+</html>

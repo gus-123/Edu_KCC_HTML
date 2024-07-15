@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    window.onload = function() {
+      //윈도우가 시작하자마자
+      const links = document.getElementsByTagName('a');
+      for(let i=0; i<links.length; i++) {
+        links[i].onclick = function() {
+          window.opener.document.fmt.address.value = this.innerHTML;  //여기서 this는 내가 클릭한 a 태그임
+          self.close();
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>주소 검색</h2>
+  <ul>
+    <li><a href="#">서울 강남구 대치동</a></li>
+    <li><a href="#">서울 종로구 명륜동</a></li>
+    <li><a href="#">경기도 화성시 능동</a></li>
+  </ul>
+</body>
+</html>
