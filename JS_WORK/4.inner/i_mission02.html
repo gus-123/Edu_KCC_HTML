@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function check() {
+      const str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      const id = document.fmt.id.value;  //kosa
+      
+      //1번 방식
+      // for (let i = 0; i < id.length; i++) {
+      //   let result = str.indexOf(id.charAt(i));
+      //   if (result == -1)  {
+      //     alert("부적한 아이디 입니다.");
+      //     break;
+      //   }
+      // }
+
+      //2번 방식
+      for (let i = 0; i < id.length; i++) {
+        if (!str.includes(id.charAt(i))) {
+          alert("부적한 아이디 입니다.");
+          break;
+        }
+      }
+    }
+
+    function checkEmail() {
+      const email = document.fmt.email.value;
+      //const regex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+      if (!email.includes('@')) {
+        alert("부적한 이메일입니다.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <form name="fmt">
+    아이디 : <input type="text" name="id"><br>
+    이메일 : <input type="text" name="email"><br>
+    <input type="button" value = "전송" onclick = "check(); checkEmail()">
+  </form>
+</body>
+</html>
