@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+
+    let total = 0;
+    let prev = 0;
+    function calc() {
+      //this => 선택한 input
+      //this => checkbox/radio => 식별 => 연산
+      // 체크요소 확인
+      const checkedElement = this;
+
+      // 체크 된 값을 저장
+      const value = parseInt(checkedElement.value);
+      // 체크 된 type을 저장
+      const type = checkedElement.type;
+
+      if (type === "checkbox") {
+        total += checkedElement.checked ? value : -value;
+      } 
+      else if (type === "radio") {
+        total -= prev;  //radio는 체크를 없앨수 없기때문에 이렇게 해야 함
+        prev = value;
+        total += prev;
+
+        // if (checkedElement.checked) {
+        //   total = value;
+        // }
+      }
+
+      document.fmt.result.value = total;
+    }
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+    checkboxes.forEach(checkbox => checkbox.addEventListener('change', calc));
+    radioButtons.forEach(radioButton => radioButton.addEventListener('change', calc));
+
+
+    window.onload = function(){
+      const inputs = document.getElementsByTagName('input');
+      for(let i=0;i<inputs.length;i++){
+        inputs[i].onclick = calc;
+      }			
+	  }
+  </script>
+</head>
+<body>
+  <form name="fmt">
+    두부 400원
+    <input type="checkbox" value="400" >
+    콩나물 150원
+    <input type="checkbox" value="150">
+    간장 1500원
+    <input type="checkbox" value="1500">
+    <br><br>
+    퀵 서비스 5000원
+    <input type="radio" name="del" value="5000">
+    택배 2500원
+    <input type="radio" name="del" value="2500">
+    <br><br>
+    
+    지불하실 금액은 : <input type="text"" name="result">
+    
+    
+  </form>
+</body>
+</html>
