@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Member List</title>
+<script type="text/javascript" src="httpRequest.js"></script>
+<script type="text/javascript">
+  // 데이터를 가져오는 부분
+  window.onload = function() {
+    sendRequest("server.jsp", "", displayMembers, "GET");
+  }
+
+  // 서버로부터의 응답을 처리하는 기능
+  function displayMembers() {
+    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+      // 서버로부터의 응답을 처리하는 기능
+      const members = JSON.parse(httpRequest.responseText);
+
+      // HTML 컨텐츠를 저장할 빈 문자열 만들기
+      let htmlContent = "";
+
+      // member list 출력
+      for (const member of members) {
+        htmlContent += `<span>이름: ${member.name}, 거주지: ${member.address}</span><br>`;
+      }
+
+      // 목록 요소를 가져와 HTML 화면 출력
+      const memberList = document.getElementById('list');
+      memberList.innerHTML = htmlContent;
+    }
+  }
+</script>
+</head>
+<body>
+  <div id="list"></div>
+</body>
+</html>

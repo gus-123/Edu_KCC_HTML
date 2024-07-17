@@ -1,4 +1,5 @@
 <%@page import="net.sf.json.JSONArray"%>
+<%@page import="kosta.Member"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
@@ -15,16 +16,3 @@
 		String json = JSONArray.fromObject(list).toString();
 		out.print(json);
 	%>
-
-
-
-
-
-
-
-
-
-
-
-
-
