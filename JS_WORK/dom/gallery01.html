@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function showPic(obj) {
+		const source = obj.getAttribute('href');  //이미지 속성값을 추출
+		const placeholder = document.getElementById('placeholder');  // 변경할 이미지 태그값을 추출
+		placeholder.setAttribute('src', source); //이미지 값을 변경
+
+		const text = obj.getAttribute('title'); // 글씨 속성값을 추출
+		const description = document.getElementById('description'); // 변경할 글씨의 태그값을 추출
+		//description.innerHTML = text;  //위의 방법은 비표준이나 보통 이걸 많이 사용 함.
+
+		if(description.firstChild.nodeType === 3) {  //위의 방법이 표준
+			description.firstChild.nodeValue = text;
+		}
+	}	
+</script>
+</head>
+<body>
+	<h1>gallery</h1>
+	<ul>
+		<li>
+			<a href="images/fireworks.jpg" title="A fireworks dispaly" 
+					onclick="showPic(this); return false;">Fireworks</a>  <!-- this는 이벤트 대상인 <> 태그 객체 , retruen false는 기본 이벤트 해지 -->
+		</li>
+		<li>
+			<a href="images/coffee.jpg" title="A cup of black coffee" 
+					onclick="showPic(this); return false;">Coffee</a>
+		</li>
+		<li>
+			<a href="images/rose.jpg" title="A red red rose" 
+					onclick="showPic(this); return false;">Rose</a>
+		</li>
+		<li>
+			<a href="images/bigben.jpg" title="The famous clock" 
+					onclick="showPic(this); return false;">Big Ben</a>
+		</li>
+	</ul>
+	<img id="placeholder" src="images/placeholder.gif" alt="myImage"/>
+	<p id="description">Choose an image</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

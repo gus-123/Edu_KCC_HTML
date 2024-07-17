@@ -1,7 +1,0 @@
-@charset "UTF-8";
-
-h4 {
-	font-size: 15px;
-	font-weight: bold;
-	color : darkgreen;
-}

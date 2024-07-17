@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="httpRequest.js"></script>
+<script type="text/javascript">
+	function hello() {
+		const params = "name=" + encodeURIComponent(document.fmt.name.value);
+		sendRequest("hello.jsp", params, helloRequest, "GET")
+	}
+	
+	//서버로부터 데이터값이 도착하면 자동으로 호출
+	//text, json, xml(순수 데이터) => html 변환 => 화면출력
+	function helloRequest() {
+		if (httpRequest.readyState == 4) {  //서버로 부터 데이터를 전체를 가져와 한다.
+			if (httpRequest.status == 200) {  // http 상태가 순수하게 서버로 부터 성공적인 결과 값을 가져와야 함
+				alert('서버응답 : ' + httpRequest.responseText) // httpRequest.responseText는 text를 가져올때 사용
+			}
+			
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="fmt">
+		<input type="text" name="name" />
+		<input type="button" value="전송" onclick="hello()">
+	</form>
+</body>
+</html>
