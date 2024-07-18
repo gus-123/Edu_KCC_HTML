@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery Attribute Selectors</title>
+        <script
+            type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(function () {
+                $("#button1").click(function () {
+                    // Highlight all input elements with a 'name' attribute
+                    $("input[name]").css("background", "silver");
+                });
+
+                $("#button2").click(function () {
+                    // Highlight input elements with a 'value' attribute exactly matching 'jQuery'
+                    $("input[value='jQuery']").css("background", "silver");
+                });
+
+                $("#button3").click(function () {
+                    // Highlight input elements with a 'value' attribute NOT containing 'jQuery'
+                    $("input[value!='jQuery']").css("background", "silver");
+                });
+
+                $("#button4").click(function () {
+                    // Highlight input elements with a 'value' attribute containing the word '셀렉터'
+                    $("input[value~='셀렉터']").css("background", "silver"); // Attribute value contains the word
+                });
+
+                $("#button5").click(function () {
+                    // Highlight input elements with a 'value' attribute containing '셀렉터' anywhere
+                    // within the value
+                    $("input[value*='셀렉터']").css("background", "silver"); // Attribute value contains substring
+                });
+
+                $("#button6").click(function () {
+                    // Highlight input elements with a 'value' attribute starting with '셀렉터'
+                    $("input[value^='셀렉터']").css("background", "silver"); // Attribute value starts with
+                });
+
+                $("#button7").click(function () {
+                    // Highlight input elements with a 'value' attribute ending with '셀렉터'
+                    $("input[value$='셀렉터']").css("background", "silver"); // Attribute value ends with
+                });
+
+                $("#btn_clear").click(function () {
+                    // Reset all input backgrounds to white
+                    $("input[type='text']").css("background", "white");
+                });
+            });
+
+            //table 용
+            // $(function () {
+            //     // #1. 짝수 번째 행 배경색(silver)
+            //     $("#domTable tr:even").css("background", "silver");
+            //     // #2. 홀수 번째 행 배경색(yellow)
+            //     $("#domTable tr:odd").css("background", "yellow");
+            //     // #3. 첫 번째 행 배경색(black), 글자색(white)
+            //     $("#domTable tr:first")
+            //         .css("background", "black")
+            //         .css("color", "white");
+            // });
+
+            //함수기반 필터 셀렉터
+            // $(function () {
+            //     $("tr:eq(0)")
+            //         .css("background", "#000000")
+            //         .css("color", "white");
+            //     $("td:nth-child(3n)").css("background", "#F9F9F9");
+            //     $("td:nth-child(3n+1)").css("background", "#565656");
+            //     $("td:nth-child(3n+2)").css("background", "#A9A9A9");
+            // });
+
+            $(function () {
+                $("td:not(.myClass)").css("background", "#A9A9A9");
+            });
+        </script>
+    </head>
+    <body>
+        <h2>jQuery Attribute Selectors</h2>
+        <p>jQuery Attribute Selectors Test</p>
+        <div id="targets">
+            <input type="text" name="case1" value="jQuery"/><br/>
+            <input type="text" name="case2" value="jQuery 셀렉터"/><br/>
+            <input type="text" name="case3" value="jQuery 셀렉터 테스트"/><br/>
+            <input type="text" name="case4" value="셀렉터 테스트"/><br/>
+            <input type="text" name="case5" value="셀렉터테스트"/><br/>
+            <input type="text" name="case6" value="테스트"/><br/>
+        </div>
+        <div>
+            <input type="button" id="button1" value="name 속성을 가짐"/>
+            <input type="button" id="button2" value="'jQuery' 일치"/>
+            <input type="button" id="button3" value="'jQuery' 미일치"/>
+            <input type="button" id="button4" value="'셀렉터' 단어 포함"/>
+            <input type="button" id="button5" value="'셀렉터' 포함"/>
+            <input type="button" id="button6" value="'셀렉터'로 시작"/>
+            <input type="button" id="button7" value="'셀렉터'로 끝남"/>
+            <input type="button" id="btn_clear" value="Clear"/>
+        </div>
+
+        <table id="domTable">
+            <thead>
+                <tr>
+                    <th>제목</th>
+                    <th>내용</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A1</td>
+                    <td>A2</td>
+                </tr>
+                <tr>
+                    <td>B1</td>
+                    <td>B2</td>
+                </tr>
+                <tr>
+                    <td>C1</td>
+                    <td>C2</td>
+                </tr>
+                <tr>
+                    <td>D1</td>
+                    <td>D2</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>jQuery 필터 셀렉터</h2>
+        <p>jQuery 필터 셀렉터의 종류를 나열하였습니다.</p>
+        <div>
+            <table>
+                <tr>
+                    <th>이름</th>
+                    <th>표현식</th>
+                    <th>설명</th>
+                </tr>
+                <tr>
+                    <td>button 필터</td>
+                    <td>:button</td>
+                    <td>모든 버튼 선택</td>
+                </tr>
+                <tr>
+                    <td>checkbox 필터</td>
+                    <td>:checkbox</td>
+                    <td>체크박스 엘리먼트 선택</td>
+                </tr>
+                <tr>
+                    <td>체크상태 필터</td>
+                    <td>:checked</td>
+                    <td>선택된 체크박스</td>
+                </tr>
+                <tr>
+                    <td>비활성화 필터</td>
+                    <td>:disabled</td>
+                    <td>비활성화 엘리먼트 선택</td>
+                </tr>
+                <tr>
+                    <td>활성화 필터</td>
+                    <td>:enabled</td>
+                    <td>활성화 엘리먼트 선택</td>
+                </tr>
+                <tr>
+                    <td>파일 필터</td>
+                    <td>:file</td>
+                    <td>파일 엘리먼트 선택</td>
+                </tr>
+            </table>
+
+            <h2>jQuery 필터 셀렉터</h2>
+            <p>jQuery 필터 셀렉터의 종류를 나열하였습니다.</p>
+            <div>
+                <table>
+                    <tr>
+                        <th>이름</th>
+                        <th>표현식</th>
+                        <th>설명</th>
+                    </tr>
+                    <tr>
+                        <td class="myClass">button 필터</td>
+                        <td>:button</td>
+                        <td>모든 버튼 선택</td>
+                    </tr>
+                    <tr>
+                        <td>checkbox 필터</td>
+                        <td class="myClass">:checkbox</td>
+                        <td>체크박스 엘리먼트 선택</td>
+                    </tr>
+                    <tr>
+                        <td>체크상태 필터</td>
+                        <td>:checked</td>
+                        <td class="myClass">선택된 체크박스</td>
+                    </tr>
+                    <tr>
+                        <td>비활성화 필터</td>
+                        <td class="myClass">:disabled</td>
+                        <td>비활성화 엘리먼트 선택</td>
+                    </tr>
+                    <tr>
+                        <td class="myClass">활성화 필터</td>
+                        <td>:enabled</td>
+                        <td>활성화 엘리먼트 선택</td>
+                    </tr>
+                    <tr>
+                        <td>파일 필터</td>
+                        <td class="myClass">:file</td>
+                        <td>파일 엘리먼트 선택</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
