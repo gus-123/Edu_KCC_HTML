@@ -1,9 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-       
+    $(function() {
+		$('#my-form').submit(function(event) {  // 값을 보내기 전에  validation을 검증 하기 위해 사용
+			const name = $('#name').val(); //input name안에 있는 value 값을 뽑아내줌
+			const password = $('#password').val(); 
+			
+			console.log(name + " : " + password);
+			
+			event.preventDefault();
+		})	
+	})
     </script>
 </head>
 <body>

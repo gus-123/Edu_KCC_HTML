@@ -1,9 +1,18 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
-       
+       $(function() {
+    	  $('#all-check').change(function() {
+    		  if(this.checked) { // 0, 빈문자열, null만 false
+    			  //$('#check-item :checkbox').attr('checked', 'checked'); // attr은 set과 get의 기능을 합쳐놓은 것임.
+    			  $('#check-item :checkbox').prop('checked', true);  // prop은 true / false가 가능
+    		  } else {
+    			  $('#check-item :checkbox').prop('checked', false);
+    		  }
+    	  }) 
+       });
     </script>
 </head>
 <body>

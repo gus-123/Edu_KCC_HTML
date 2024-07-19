@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		//$('div').append($('b'));  //부모(div)에 자식(b)를 이동
+		//$('span').prependTo($('b'));  //자식(span)을 부모(b)앞으로 이동 
+		//$('div').before($('b')); // b태그가 div앞으로
+		$('b').after($('span'));  //insertBefore도 됨.
+		
+		alert($('body').html());
+	});
+</script>
+</head>
+<body>
+	<div>jQuery</div>
+	
+	<span>JavaScript</span>
+	
+	<b>Java</b>
+</body>
+</html>

@@ -3,9 +3,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$(function() {
+		$('button').click(function() {
+			$('body').append('<div>Hello jQuery!!!' + $('div').size() + 'th</div>');  //  동적인 코드  - jquery 3.x버전 부터는 안됨.
+			//$('body').append('<div>Hello jQuery!!! ' + ($('div').length + 1) + '번째</div>'); // jquery 3.x버전용 방식.
+		});
+		
+		/*
+		$('div').on('click', function() {
+			alert($(this).html());  // click한 div 임 == this  => 처음 있는 컨테츠에 만 적용 되는 에러가 생김.
+		}
+		*/
+		
+		//위의 코드 해결 방안 코드
+		//부모.on(행동, 실제 적용되는 것, 함수)
+		$('body').on('click', 'div', function() {
+			alert($(this).html());
+		})
+		
+	});
 </script>
 </head>
 <body>
